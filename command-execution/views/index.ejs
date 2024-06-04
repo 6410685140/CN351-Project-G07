@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Execution</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"], select {
+      display: block;
+      width: calc(100% - 20px);
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    pre {
+      background: #f8f8f8;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Execute Command</h2>
+    <form action="/execute" method="POST">
+      <label for="command">Choose a command:</label>
+      <select id="command" name="command" required>
+        <option value="ls">ls</option>
+        <option value="cat">cat</option>
+        <option value="python">python</option>
+      </select>
+      <input type="text" name="parameter" placeholder="Enter parameter" required>
+      <input type="submit" value="Execute">
+    </form>
+    <div id="output">
+      <% if (output) { %>
+        <h3>Output:</h3>
+        <pre><%= output %></pre>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

